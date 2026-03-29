@@ -51,7 +51,8 @@ function Editor({ user }) {
         return;
     }
 
-    const socket = new SockJS('http://localhost:8080/ws');
+    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+    const socket = new SockJS(`${API_BASE_URL}/ws`);
     const client = Stomp.over(socket);
 
     client.connect({ Authorization: `Bearer ${token}` }, (frame) => {

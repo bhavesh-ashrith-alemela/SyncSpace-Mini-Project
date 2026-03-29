@@ -93,7 +93,10 @@ function FileSidebar({ docId, isOpen, onClose }) {
                  </p>
                </div>
                <button 
-                 onClick={() => window.open(`http://localhost:8080/api/documents/${docId}/files/${f.id}/download`)}
+                 onClick={() => {
+                   const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+                   window.open(`${API_BASE_URL}/api/documents/${docId}/files/${f.id}/download`);
+                 }}
                  style={{background: 'var(--accent-color)', padding: '5px 10px', fontSize: '0.8rem', whiteSpace: 'nowrap'}}
                >
                  Download
