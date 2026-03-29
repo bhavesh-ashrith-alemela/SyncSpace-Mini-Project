@@ -1,0 +1,72 @@
+======================================================================
+         REAL-TIME COLLABORATIVE WORKSPACE PLATFORM
+======================================================================
+
+1. ABSTRACT
+----------------------------------------------------------------------
+The Real-Time Collaborative Workspace is a comprehensive web-based 
+platform designed to empower teams to work together remotely without 
+friction. It provides a seamless, high-performance synchronous 
+environment where multiple users can securely co-edit documents, 
+write code, and draft presentations simultaneously. By broadcasting 
+changes instantly across all connected clients, it completely eliminates 
+the risk of version conflicts and disjointed workflows.
+
+
+2. PROBLEM STATEMENT
+----------------------------------------------------------------------
+In an increasingly distributed workforce, traditional file-sharing 
+methods (like emailing documents or pushing static code files) often 
+lead to version-control nightmares, out-of-sync data, and severe 
+productivity bottlenecks. While siloed tools exist, there is a critical 
+need for a unified, secure, and instantaneous platform where teams can 
+visualize live changes across various document formats on a single, 
+centralized dashboard without noticeable latency.
+
+
+3. TECH STACK
+----------------------------------------------------------------------
+* FRONTEND:
+  - Framework: React 19 (Bootstrapped via Vite 5 for supreme speed)
+  - Styling: Pure Vanilla CSS (Custom Glassmorphism & Dark Mode)
+  - HTTP Client: Axios (with global JWT interception)
+  - Real-Time Protocol: SockJS & @stomp/stompjs
+
+* BACKEND:
+  - Framework: Java 17 + Spring Boot 3.x
+  - API Layer: Spring Web (RESTful architecture)
+  - Real-Time Engine: Spring WebSockets / STOMP Message Broker
+  - Security: Spring Security 6 with stateless JWT Bearer Tokens
+  - Persistence: Spring Data JPA (Hibernate)
+
+* DATABASE:
+  - H2 Embedded In-Memory Database (Ideal for rapid prototyping 
+    and avoiding heavy external database configurations)
+
+
+4. CORE FEATURES
+----------------------------------------------------------------------
+- Secure User Authentication: JWT-based signup and login system 
+  protecting all REST APIs and WebSocket handshakes.
+- Unified Workspace Dashboard: A centralized hub for users to view, 
+  create, and manage various workspaces (Documents, Code, PPTs).
+- Live Multi-player Collaboration: Proprietary WebSocket engine that 
+  captures keystrokes and broadcasts them to all subscribed clients 
+  with near-zero latency.
+- Auto-syncing: Documents automatically pull the latest state from 
+  the backend immediately upon joining a room.
+- Dynamic Security Rejection: Automatic frontend routing that kicks 
+  users back to login if the backend rejects an expired or forged token.
+- Premium UI/UX: Fully custom, highly responsive glassmorphism aesthetic 
+  with glowing feedback indicators and smooth transitions.
+
+
+5. USE CASES
+----------------------------------------------------------------------
+- Remote Engineering Teams: Conducting live remote pair-programming 
+  sessions or live code-interview assessments.
+- Education & Academia: Teachers and students interactively reviewing 
+  essays, study guides, and research documents on the exact same screen.
+- Business & Enterprise: Agile co-authoring of meeting minutes, 
+  brainstorming project architectures, and drafting presentations 
+  synchronously during video calls.
